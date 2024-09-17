@@ -20,6 +20,15 @@ function dbConnection()
 
 function selectFruits()
 {
+    $statement = dbConnection()->prepare("SELECT * FROM fruit ORDER BY fruit_id ASC");
+    $statement->execute();
+    return $statement;
+}
+
+//create fruits 
+
+function createFruits()
+{
 
 }
 
