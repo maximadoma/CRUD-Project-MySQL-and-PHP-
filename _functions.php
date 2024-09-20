@@ -50,4 +50,29 @@ function createFruit($fruitName, $fruitQty)
     }
 }
 
+//update fruits 
+function updateFruit($fruitName, $fruitQty, $fruitId)
+{
+    $statement = dbConnection()->prepare("UPDATE fruit SET 
+    fruit_name = :fruit_name,
+    fruit_qty =  :fruit_qty,
+    fruit_updated = NOW()
+    WHERE 
+    fruit_id = :fruit_id
+    ");
+
+    $statement->execute([
+        'fruit_name' => $fruitName,
+        'fruit_qty' => $fruitQty,
+        'fruit_id' => $fruitId
+    ]);
+
+    if ($statement) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 ?>

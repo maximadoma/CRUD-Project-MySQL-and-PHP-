@@ -2,15 +2,18 @@
 
 require '_functions.php';
 
-if (isset($_POST['createFruit'])) {
+//get the fruitId value from the url parameter
 
+$fruitId = $_GET['fruitId'];
+
+if (isset($_POST['updateFruit'])) {
     $fruitName = $_POST['fruitName'];
     $fruitQty = $_POST['fruitQty'];
 
-    $request = createFruit($fruitName, $fruitQty);
+    $request = updateFruit($fruitName, $fruitQty, $fruitId);
 
     if ($request == true) {
-        header("location: index.php?note=added");
+        header("location: index.php?note=update");
     } else {
         header("location: index.php?note=error");
     }
