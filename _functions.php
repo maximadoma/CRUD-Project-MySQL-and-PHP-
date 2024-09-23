@@ -75,4 +75,23 @@ function updateFruit($fruitName, $fruitQty, $fruitId)
 }
 
 
+//update fruits 
+function deleteFruit($fruitId)
+{
+    $statement = dbConnection()->prepare("DELETE FROM fruit WHERE
+    fruit_id = :fruit_id
+    ");
+
+    $statement->execute([
+        'fruit_id' => $fruitId
+    ]);
+
+    if ($statement) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 ?>

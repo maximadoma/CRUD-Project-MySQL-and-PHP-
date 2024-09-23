@@ -86,7 +86,7 @@ require '_functions.php';
                                             </td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#delete_">Delete</button>
+                                                    data-bs-target="#delete_<?= $fruit['fruit_id'] ?>">Delete</button>
                                             </td>
 
 
@@ -137,6 +137,42 @@ require '_functions.php';
                                                 </div>
                                             </div>
                                             <!-- Modal End (Edit Fruits) -->
+
+
+                                            <!-- Modal Start (Delete Fruits) -->
+                                            <div class="modal fade" id="delete_<?= $fruit['fruit_id'] ?>" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Fruit
+                                                                -
+                                                                <?= $fruit['fruit_name'] ?>
+                                                            </h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+
+                                                        <form action="fruit_delete.php?fruitId=<?= $fruit['fruit_id'] ?>"
+                                                            method="POST">
+
+                                                            <div class="modal-body">
+                                                                Trying to delete <?= $fruit['fruit_name'] ?>?
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-danger"
+                                                                    name="deleteFruit" id="deleteFruit">Delete</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal End (Delete Fruits) -->
 
                                         </tr>
 
